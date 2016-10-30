@@ -10,6 +10,11 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'modules' => [
+        'auth' => [
+            'class' => 'common\modules\auth\Module',
+        ],
+    ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
@@ -19,6 +24,7 @@ return [
             'identityClass' => 'common\modules\auth\models\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+            'loginUrl' => 'login'
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
@@ -36,14 +42,15 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'login' => 'auth/default/login',
+                'signup' => 'auth/default/signup',
+                'logout' => 'auth/default/logout',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
