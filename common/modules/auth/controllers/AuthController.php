@@ -11,7 +11,7 @@ use common\modules\auth\models\LoginForm;
 /**
  * Site controller
  */
-class DefaultController extends Controller
+class AuthController extends Controller
 {
     /**
      * @inheritdoc

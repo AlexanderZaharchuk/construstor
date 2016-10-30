@@ -6,6 +6,10 @@
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use common\modules\auth\widgets\Login\Login;
+use common\modules\auth\models\LoginForm;
+use common\modules\auth\widgets\Reg\Reg;
+use common\modules\auth\models\RegForm;
 
 AppAsset::register($this);
 ?>
@@ -25,7 +29,21 @@ AppAsset::register($this);
 <div class="wrap">
     <div class="container">
         <?= Alert::widget() ?>
+
         <?= $content ?>
+
+        <?php if(Yii::$app->user->isGuest): ?>
+            <?= Login::widget([
+                'model' => new LoginForm(),
+                'action' => '/user/login'
+            ]) ?>
+            <?= Reg::widget([
+                'model' => new RegForm(),
+                'action' => '/user/signup'
+            ]) ?>
+        <?php else: ?>
+            
+        <?php endif; ?>
     </div>
 </div>
 
