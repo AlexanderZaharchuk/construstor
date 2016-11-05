@@ -9,7 +9,7 @@ use common\widgets\Alert;
 use common\modules\auth\widgets\Login\Login;
 use common\modules\auth\models\LoginForm;
 use common\modules\auth\widgets\Reg\Reg;
-use common\modules\auth\models\RegForm;
+use frontend\models\UserRegForm;
 
 AppAsset::register($this);
 ?>
@@ -38,7 +38,7 @@ AppAsset::register($this);
                 'action' => '/site/login'
             ]) ?>
             <?= Reg::widget([
-                'model' => new RegForm(),
+                'model' => new UserRegForm(),
                 'action' => '/site/reg'
             ]) ?>
         <?php else: ?>

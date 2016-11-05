@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\modules\auth\models\LoginForm;
 use common\modules\auth\models\RegForm;
+use frontend\models\UserRegForm;
 use yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -57,7 +58,7 @@ class SiteController extends Controller
             ],
             'reg' => [
                 'class' => 'common\modules\auth\components\Reg',
-                'model' => new RegForm(),
+                'model' => new UserRegForm(),
                 'view' => '/site/index'
             ],
             'logout' => [

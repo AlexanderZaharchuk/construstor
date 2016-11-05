@@ -29,32 +29,25 @@ class RegForm extends Model
     
     public function rules()
     {
-        return [
-            [['user_name', 'password', 'photo', 'name'], 'required'],
-            [['user_name', 'password', 'photo', 'name'], 'string', 'max' => 255],
-        ];
+        $rules['required'] = [['user_name', 'password'], 'required'];
+        $rules['string'] = [['user_name', 'password'], 'string', 'max' => 255];
+        return $rules;
     }
 
     public function attributeLabels()
     {
-        return [
-            'user_name' => Yii::t('app', 'User name'),
-            'password' => Yii::t('app', 'Password'),
-            'photo' => Yii::t('app', 'Photo'),
-            'name' => Yii::t('app', 'Name'),
-        ];
+        $labels['user_name'] = Yii::t('app', 'User name');
+        $labels['password'] = Yii::t('app', 'Password');
+        return $labels;
     }
 
     public function reg()
     {
         $user = new User();
         $user->user_name = $this->user_name;
-        $user->photo = $this->photo;
-        $user->name = $this->name;
-        $user->status = 0;
         $user->setPassword($this->password);
         $user->generateAuthKey();
 
-        return $user->save() ? $user : null;
+        return $user;
     }
 }

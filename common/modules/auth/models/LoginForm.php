@@ -70,14 +70,9 @@ class LoginForm extends Model
     {
         if ($this->validate()) {
             $user = $this->getUser();
-            $this->status = ($user ? $user['status'] : User::STATUS_BLOCK);
-            if ($this->status === User::STATUS_ACTIVE) {
-                return Yii::$app->user->login($user, $this->remember_me ? 3600*24*30 : 0);
-            } else {
-                return false;
-            }
-        } else {
-            return false;
+            return Yii::$app->user->login($user, $this->remember_me ? 3600*24*30 : 0);
         }
+
+        return false;
     }
 }
