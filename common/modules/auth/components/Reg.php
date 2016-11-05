@@ -14,7 +14,9 @@ class Reg extends Action
         if ($this->model->load(Yii::$app->request->post())) {
             if ($user = $this->model->reg()) {
                 if (Yii::$app->getUser()->login($user)) {
-                    return Yii::$app->controller->goHome();
+                    Yii::$app->controller->view->registerJs('
+                        alert("Вы успешно зарегестрированы! Пожалуйста, дождитесь одобрения администратора.");
+                    ');
                 }
             }
         }

@@ -35,14 +35,21 @@ AppAsset::register($this);
         <?php if(Yii::$app->user->isGuest): ?>
             <?= Login::widget([
                 'model' => new LoginForm(),
-                'action' => '/user/login'
+                'action' => '/site/login'
             ]) ?>
             <?= Reg::widget([
                 'model' => new RegForm(),
-                'action' => '/user/signup'
+                'action' => '/site/reg'
             ]) ?>
         <?php else: ?>
-            
+            <?=
+                Html::beginForm(['/site/logout'], 'post')
+                . Html::submitButton(
+                    'Logout (' . Yii::$app->user->identity->user_name . ')',
+                    ['class' => 'btn btn-link']
+                )
+                . Html::endForm();
+            ?>
         <?php endif; ?>
     </div>
 </div>

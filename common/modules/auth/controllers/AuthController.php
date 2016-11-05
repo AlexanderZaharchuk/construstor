@@ -21,10 +21,10 @@ class AuthController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup', 'login'],
+                'only' => ['logout', 'reg', 'login'],
                 'rules' => [
                     [
-                        'actions' => ['signup', 'login'],
+                        'actions' => ['reg', 'login'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -107,7 +107,7 @@ class AuthController extends Controller
      *
      * @return mixed
      */
-    public function actionSignup()
+    public function actionReg()
     {
         $model = new RegForm();
 

@@ -14,7 +14,9 @@ $this->registerJs('
 ?>
 <div class="from">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'action' => $action
+    ]); ?>
 
         <?= $form->field($model, 'user_name') ?>
         <?= $form->field($model, 'password') ?>

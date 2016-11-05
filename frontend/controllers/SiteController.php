@@ -1,6 +1,8 @@
 <?php
 namespace frontend\controllers;
 
+use common\modules\auth\models\LoginForm;
+use common\modules\auth\models\RegForm;
 use yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -19,10 +21,10 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only' => ['logout', 'reg', 'login'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
+                        'actions' => ['reg', 'login'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -48,12 +50,21 @@ class SiteController extends Controller
     public function actions()
     {
         return [
+            'login' => [
+                'class' => 'common\modules\auth\components\Login',
+                'model' => new LoginForm(),
+                'view' => '/site/index'
+            ],
+            'reg' => [
+                'class' => 'common\modules\auth\components\Reg',
+                'model' => new RegForm(),
+                'view' => '/site/index'
+            ],
+            'logout' => [
+                'class' => 'common\modules\auth\components\Logout',
+            ],
             'error' => [
                 'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
     }

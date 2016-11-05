@@ -15,6 +15,10 @@ class Login extends Action
             Yii::$app->controller->view->registerJs('
                 alert("Вы успешно вошли!");
             ');
+        } else {
+            Yii::$app->controller->view->registerJs('
+                alert("Ваш аккаунт еще не одобрен администратором. Пожалуйста, попробуйте позже.");
+            ');
         }
 
         return Yii::$app->controller->render($this->view, [
