@@ -7,20 +7,21 @@ use yii;
 class Reg extends Action
 {
     public $model;
-    public $view = '/';
+    public $redirect = '/';
+    public $view = '/site/reg';
 
     public function run()
     {
         if ($this->model->load(Yii::$app->request->post())) {
             if ($user = $this->model->reg()) {
                 if (Yii::$app->getUser()->login($user)) {
-                    Yii::$app->controller->view->registerJs('
-                        alert("Вы успешно зарегестрированы! Пожалуйста, дождитесь одобрения администратора.");
-                    ');
+                    return Yii::$app->controller->redirect($this->redirect);
                 }
             }
         }
 
-        return Yii::$app->controller->redirect($this->view);
+        return $this->controller->render($this->view, [
+            'model' => $this->model
+        ]);
     }
 }

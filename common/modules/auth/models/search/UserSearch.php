@@ -18,7 +18,7 @@ class UserSearch extends User
     public function rules()
     {
         return [
-            [['id', 'status', 'remember_me', 'auth_key', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'status', 'auth_key', 'created_at', 'updated_at'], 'integer'],
             [['user_name', 'password_hash', 'photo', 'name'], 'safe'],
         ];
     }
@@ -47,6 +47,9 @@ class UserSearch extends User
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 5,
+            ],
         ]);
 
         $this->load($params);
@@ -61,7 +64,6 @@ class UserSearch extends User
         $query->andFilterWhere([
             'id' => $this->id,
             'status' => $this->status,
-            'remember_me' => $this->remember_me,
             'auth_key' => $this->auth_key,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

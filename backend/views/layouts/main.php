@@ -10,6 +10,9 @@ use backend\widgets\Login\Login;
 use backend\widgets\Reg\Reg;
 use common\modules\auth\models\backend\LoginForm;
 use common\modules\auth\models\backend\RegForm;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
 
 AppAsset::register($this);
 ?>
@@ -27,32 +30,47 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <div class="container">
-        <?= Alert::widget() ?>
-
-        <?= $content ?>
-
-        <?php if(Yii::$app->user->isGuest): ?>
-            <?= Login::widget([
-                'model' => new LoginForm(),
-                'action' => '/site/login'
-            ]) ?>
-            <?php if(Yii::$app->params['registration']): ?>
-                    <?= Reg::widget([
-                    'model' => new RegForm(),
-                    'action' => '/site/reg'
-                ]) ?>
-            <?php endif; ?>
-        <?php else: ?>
-            <?=
-                Html::beginForm(['/site/logout'], 'post')
+    <?php
+    NavBar::begin([
+        'brandLabel' => Yii::t('app', 'Admin panel'),
+        'brandUrl' => Yii::$app->homeUrl,
+        'options' => [
+            'class' => 'navbar-inverse navbar-fixed-top',
+        ],
+    ]);
+    if (Yii::$app->user->isGuest) {
+        $menuItems[] = ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']];
+        if (Yii::$app->params['registration']) {
+            $menuItems[] = ['label' => Yii::t('app', 'Registration'), 'url' => ['/site/reg']];
+        }
+    } else {
+        $menuItems = [
+            ['label' => Yii::t('app', 'Users'), 'url' => ['/auth/auth/index']],
+        ];
+            $menuItems[] = '<li>'
+                . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
                     'Logout (' . Yii::$app->user->identity->user_name . ')',
                     ['class' => 'btn btn-link']
                 )
-                . Html::endForm();
-            ?>
-        <?php endif; ?>
+                . Html::endForm()
+                . '</li>';
+    }
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-right'],
+        'items' => $menuItems,
+    ]);
+    NavBar::end();
+    ?>
+
+    <div class="container">
+        <?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
+        <?= Alert::widget() ?>
+
+        <?= $content ?>
+
     </div>
 </div>
 

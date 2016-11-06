@@ -45,6 +45,7 @@ class RegForm extends Model
         $user = new Admin();
         $user->user_name = $this->user_name;
         $user->setPassword($this->password);
+        $user->generateAuthKey();
 
         return $user->save() ? $user : null;
     }

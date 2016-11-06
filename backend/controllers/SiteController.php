@@ -24,8 +24,12 @@ class SiteController extends Controller
                 'only' => ['logout', 'reg', 'login'],
                 'rules' => [
                     [
-                        'actions' => ['reg', 'login'],
+                        'actions' => ['login'],
                         'allow' => true,
+                        'roles' => ['?'],
+                    ],                    [
+                        'actions' => ['reg'],
+                        'allow' => Yii::$app->params['registration'],
                         'roles' => ['?'],
                     ],
                     [
@@ -53,12 +57,10 @@ class SiteController extends Controller
             'login' => [
                 'class' => 'common\modules\auth\components\Login',
                 'model' => new LoginForm(),
-                'view' => '/site/index'
             ],
             'reg' => [
                 'class' => 'common\modules\auth\components\Reg',
                 'model' => new RegForm(),
-                'view' => '/site/index'
             ],
             'logout' => [
                 'class' => 'common\modules\auth\components\Logout',

@@ -30,14 +30,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'user_name',
-            'password_hash',
+            //'password_hash',
             'status',
-            'remember_me',
-            'auth_key',
-            'photo',
+            //'remember_me',
+            //'auth_key',
+            [
+                'attribute' => 'photo',
+                'value' => '/files/' . $model->photo,
+                'format' => [ 'image', ['height'=>'200']],
+            ],
             'name',
-            'created_at',
-            'updated_at',
+            [
+                'attribute' => 'created_at',
+                'value' => date("Y-m-d", $model->created_at),
+            ]
+            //'updated_at',
         ],
     ]) ?>
 
