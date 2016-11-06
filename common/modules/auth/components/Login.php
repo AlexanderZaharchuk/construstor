@@ -7,7 +7,7 @@ use yii;
 class Login extends Action
 {
     public $model;
-    public $view = '/';
+    public $view = '/site/index';
 
     public function run()
     {
@@ -21,8 +21,6 @@ class Login extends Action
             ');
         }
 
-        return Yii::$app->controller->render($this->view, [
-            'model' => $this->model
-        ]);
+        return Yii::$app->controller->redirect($this->view);
     }
 }

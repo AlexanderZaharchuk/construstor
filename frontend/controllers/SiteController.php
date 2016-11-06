@@ -1,8 +1,8 @@
 <?php
 namespace frontend\controllers;
 
-use common\modules\auth\models\LoginForm;
-use common\modules\auth\models\RegForm;
+use common\modules\auth\models\frontend\LoginForm;
+use common\modules\auth\models\User;
 use frontend\models\UserRegForm;
 use yii;
 use yii\web\Controller;

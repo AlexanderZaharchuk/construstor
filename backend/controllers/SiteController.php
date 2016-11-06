@@ -1,11 +1,12 @@
 <?php
 namespace backend\controllers;
 
+use common\modules\auth\models\backend\RegForm;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\LoginForm;
+use common\modules\auth\models\backend\LoginForm;
 
 /**
  * Site controller
@@ -20,13 +21,15 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
+                'only' => ['logout', 'reg', 'login'],
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['reg', 'login'],
                         'allow' => true,
+                        'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -47,6 +50,19 @@ class SiteController extends Controller
     public function actions()
     {
         return [
+            'login' => [
+                'class' => 'common\modules\auth\components\Login',
+                'model' => new LoginForm(),
+                'view' => '/site/index'
+            ],
+            'reg' => [
+                'class' => 'common\modules\auth\components\Reg',
+                'model' => new RegForm(),
+                'view' => '/site/index'
+            ],
+            'logout' => [
+                'class' => 'common\modules\auth\components\Logout',
+            ],
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
@@ -61,38 +77,5 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
-    }
-
-    /**
-     * Login action.
-     *
-     * @return string
-     */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Logout action.
-     *
-     * @return string
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
     }
 }

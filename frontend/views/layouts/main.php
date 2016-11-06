@@ -6,10 +6,11 @@
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
-use common\modules\auth\widgets\Login\Login;
-use common\modules\auth\models\LoginForm;
-use common\modules\auth\widgets\Reg\Reg;
+use frontend\widgets\Login\Login;
+use common\modules\auth\models\frontend\LoginForm;
+use frontend\widgets\Reg\Reg;
 use frontend\models\UserRegForm;
+use common\modules\auth\models\User;
 
 AppAsset::register($this);
 ?>
@@ -50,6 +51,10 @@ AppAsset::register($this);
                 )
                 . Html::endForm();
             ?>
+        <?php endif; ?>
+        
+        <?php if(User::getStatus()): ?>
+            HELLO
         <?php endif; ?>
     </div>
 </div>

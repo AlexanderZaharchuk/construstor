@@ -3,7 +3,8 @@
 namespace frontend\models;
 
 
-use common\modules\auth\models\RegForm;
+use common\modules\auth\models\frontend\RegForm;
+use yii\web\UploadedFile;
 use yii;
 
 class UserRegForm extends RegForm
@@ -18,6 +19,7 @@ class UserRegForm extends RegForm
         $rules = parent::rules();
         $rules['photo'] = [['photo', 'name'], 'required'];
         $rules['name'] = [['photo', 'name'], 'string', 'max' => 255];
+        $rules['file'] = [['photo'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'];
         return $rules;
     }
     
@@ -28,13 +30,13 @@ class UserRegForm extends RegForm
         $labels['name'] = Yii::t('app', 'Name');
     }
     
-    public function reg()
+    public function upload()
     {
-        $user = parent::reg();
-        $user->photo = $this->photo;
-        $user->name = $this->name;
-        $user->status = 0;
+        $this->photo = UploadedFile::getInstance($this, 'photo');
+        if ($this->photo->saveAs(Yii::getAlias(YII_BACKEND) . 'files/' . $this->photo)) {
+            return $this->photo->name;
+        }
 
-        return $user->save() ? $user : null;
+        return false;
     }
 }

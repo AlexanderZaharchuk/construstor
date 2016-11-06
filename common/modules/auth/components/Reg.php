@@ -21,8 +21,6 @@ class Reg extends Action
             }
         }
 
-        return Yii::$app->controller->render($this->view, [
-            'model' => $this->model
-        ]);
+        return Yii::$app->controller->redirect($this->view);
     }
 }

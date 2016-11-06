@@ -12,13 +12,17 @@ use yii\web\IdentityInterface;
  * @property integer $id
  * @property string $user_name
  * @property string $password_hash
+ * @property boolean $status
  * @property boolean $remember_me
  * @property integer $auth_key
+ * @property string $photo
+ * @property string $name
  * @property integer $created_at
  * @property integer $updated_at
  */
-class User extends \yii\db\ActiveRecord implements IdentityInterface
+class Admin extends \yii\db\ActiveRecord implements IdentityInterface
 {
+
     const STATUS_ACTIVE = 1;
     const STATUS_BLOCK = 0;
 
@@ -27,7 +31,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public static function tableName()
     {
-        return 'user';
+        return 'admin';
     }
 
     /**
@@ -73,7 +77,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
     /* Хелперы */
-    
+
     public function setPassword($password)
     {
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
@@ -87,12 +91,6 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function validatePassword($password)
     {
         return Yii::$app->security->validatePassword($password, $this->password_hash);
-    }
-    
-    public static function getStatus()
-    {
-        $status = Yii::$app->user->identity['status'];
-        return !empty($status) ? $status : false;
     }
 
     /* Аутентификация пользователей */

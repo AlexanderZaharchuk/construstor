@@ -6,8 +6,9 @@
  * Time: 20:32
  */
 
-namespace common\modules\auth\models;
+namespace common\modules\auth\models\backend;
 
+use common\modules\auth\models\Admin;
 use yii;
 use yii\base\Model;
 
@@ -51,7 +52,7 @@ class LoginForm extends Model
     public function getUser()
     {
         if ($this->_user === false) {
-            $this->_user = User::findByUsername($this->user_name);
+            $this->_user = Admin::findByUsername($this->user_name);
         }
 
         return $this->_user;

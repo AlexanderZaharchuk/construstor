@@ -6,11 +6,12 @@
  * Time: 19:53
  */
 
-namespace common\modules\auth\models;
+namespace common\modules\auth\models\backend;
 
 
 use yii\base\Model;
 use yii;
+use common\modules\auth\models\Admin;
 
 /**
  * This is the model class for table "user".
@@ -24,9 +25,7 @@ class RegForm extends Model
 {
     public $user_name;
     public $password;
-    public $photo;
-    public $name;
-    
+
     public function rules()
     {
         $rules['required'] = [['user_name', 'password'], 'required'];
@@ -43,11 +42,10 @@ class RegForm extends Model
 
     public function reg()
     {
-        $user = new User();
+        $user = new Admin();
         $user->user_name = $this->user_name;
         $user->setPassword($this->password);
-        $user->generateAuthKey();
 
-        return $user;
+        return $user->save() ? $user : null;
     }
 }
