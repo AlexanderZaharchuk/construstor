@@ -6,10 +6,6 @@
 use backend\assets\AppAsset;
 use yii\helpers\Html;
 use common\widgets\Alert;
-use backend\widgets\Login\Login;
-use backend\widgets\Reg\Reg;
-use common\modules\auth\models\backend\LoginForm;
-use common\modules\auth\models\backend\RegForm;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -46,6 +42,7 @@ AppAsset::register($this);
     } else {
         $menuItems = [
             ['label' => Yii::t('app', 'Users'), 'url' => ['/auth/auth/index']],
+            ['label' => Yii::t('app', 'Commands'), 'url' => ['/content/commands']],
         ];
             $menuItems[] = '<li>'
                 . Html::beginForm(['/site/logout'], 'post')

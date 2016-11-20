@@ -15,6 +15,9 @@ return [
         'auth' => [
             'class' => 'common\modules\auth\Module',
         ],
+        'content' => [
+            'class' => 'common\modules\content\Module',
+        ],
     ],
     'components' => [
         'request' => [
