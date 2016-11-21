@@ -61,12 +61,19 @@ class Commands extends CommonModel
             'last_name' => 'string',
         ];
     }
-    
+
+    /**
+     * @return string
+     */
     public static function getTemplate()
     {
         return '{update} {delete}';
     }
 
+    /**
+     * @param bool $insert
+     * @return bool
+     */
     public function beforeSave($insert)
     {
         $this->photo = $this->upload('photo', $this->formName());

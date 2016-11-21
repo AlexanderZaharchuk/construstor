@@ -1,0 +1,64 @@
+<?php
+
+use yii\helpers\Html;
+use yii\grid\GridView;
+
+/* @var $this yii\web\View */
+/* @var $searchModel common\modules\content\models\search */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = Yii::t('app', $model->formName());
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="<?= $model->formName() ?>-index">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+    <p>
+        <?= Html::a(Yii::t('app', 'Create Commands'), ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+    <?php
+        $columns[] = ['class' => 'yii\grid\SerialColumn'];
+        foreach ($model::getFields() as $key => $item) {
+            switch ($item) {
+                case 'image':
+                    $columns[] = [
+                        'attribute' => $key,
+                        'format' => 'html',
+                        'value' => function ($model) use ($key) {
+                            return Html::img('/files/'.$model->formName().'/'.$model->$key, ['width' => '100px']);
+                        },
+                    ];
+                    break;
+                case 'data':
+                    $columns[] = [
+                        'class' => 'yii\grid\DataColumn',
+                        'attribute' => $key,
+                        'value' => function ($model) use ($key) {
+                            return date("Y-m-d H:i:s", $model->$key);
+                        },
+                    ];
+                    break;
+                case 'CKEditor':
+                    $columns[] = [
+                        'format' => 'raw',
+                        'attribute' => $key,
+                        'value' => $model->$key,
+                    ];
+                    break;
+                default:
+                    $columns[] = $key;
+            }
+        }
+        $columns[] = [
+            'class' => 'yii\grid\ActionColumn',
+            'template' => $model::getTemplate()
+        ];
+    ?>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => $columns,
+    ]); ?>
+</div>

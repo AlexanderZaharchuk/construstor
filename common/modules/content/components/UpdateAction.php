@@ -12,6 +12,7 @@ class UpdateAction extends CrudAction
 {
     public $model;
     public $htmlClass;
+    public $view = 'update';
     
     /**
      * @return string|yii\web\Response
@@ -25,7 +26,7 @@ class UpdateAction extends CrudAction
             return $this->controller->redirect(['index']);
         }
 
-        return $this->controller->render('update', [
+        return $this->controller->render($this->view, [
             'model' => $this->model,
             'class' => $this->model->formName()
         ]);

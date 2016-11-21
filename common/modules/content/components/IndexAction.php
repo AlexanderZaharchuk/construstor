@@ -14,6 +14,7 @@ class IndexAction extends CrudAction
     public $model;
     public $searchModel;
     public $params;
+    public $view = 'index';
     
     /**
      * @return string
@@ -23,7 +24,7 @@ class IndexAction extends CrudAction
         $dataProvider = !isset($this->searchModel)
             ? new ActiveDataProvider($this->params)
             : $this->searchModel->search(Yii::$app->request->queryParams);
-        return $this->controller->render('index', [
+        return $this->controller->render($this->view, [
             'searchModel' => $this->searchModel,
             'dataProvider' => $dataProvider,
             'model' => $this->model

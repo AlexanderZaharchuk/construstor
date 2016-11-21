@@ -12,26 +12,14 @@ use yii\filters\VerbFilter;
  */
 class CommandsController extends CrudController
 {
+    /**
+     * @var array
+     */
     public $allow = [
         'index',
         'create',
         'update',
     ];
-
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * @return Commands
