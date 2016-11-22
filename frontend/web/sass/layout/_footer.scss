@@ -1,0 +1,18 @@
+.page-footer__item {
+  margin: 0px 5px;
+  max-height: 120px;
+  overflow: hidden;
+  max-width: 240px;
+}
+.page-footer__parner-items {
+  display: flex;
+  align-items: center;
+  min-height: 140px;
+}
+
+.page-footer__parner-items {
+  .slick-track {
+    display: flex !important;
+    align-items: center !important;
+  }
+}

@@ -66,7 +66,14 @@ class Honors extends CommonModel
      */
     public function beforeSave($insert)
     {
-        $this->photo = $this->upload('photo', $this->formName());
+        $this->photo = $this->upload();
         return parent::beforeSave($insert);
+    }
+    
+    public static function getAllHonors()
+    {
+        $query = self::find()->all();
+        
+        return $query;
     }
 }

@@ -30,7 +30,8 @@ class Shop extends CommonModel
         return [
 //            [['id', 'photo', 'capture', 'price'], 'required'],
 //            [['id'], 'integer'],
-            [['photo', 'capture', 'price'], 'string', 'max' => 255],
+            [['capture', 'price'], 'string', 'max' => 255],
+//            [['photo'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -73,7 +74,14 @@ class Shop extends CommonModel
      */
     public function beforeSave($insert)
     {
-        $this->photo = $this->upload('photo', $this->formName());
+        $this->photo = $this->upload();
         return parent::beforeSave($insert);
+    }
+
+    public static function getShopItems()
+    {
+        $query = self::find()->all();
+        
+        return $query;
     }
 }

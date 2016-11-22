@@ -14,6 +14,9 @@ return [
         'auth' => [
             'class' => 'common\modules\auth\Module',
         ],
+        'content' => [
+            'class' => 'common\modules\content\Module',
+        ],
     ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
@@ -45,6 +48,11 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+            ],
+        ],
+        'assetManager' => [
+            'bundles' => [
+                'linkAssets' => false
             ],
         ],
     ],

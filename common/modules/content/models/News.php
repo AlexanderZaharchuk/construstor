@@ -40,7 +40,7 @@ class News extends CommonModel
         return [
 //            [['content', 'created_at', 'updated_at'], 'required'],
 //            [['created_at', 'updated_at'], 'integer'],
-            [['content'], 'string', 'max' => 255],
+            [['content'], 'string'],
         ];
     }
 
@@ -73,5 +73,12 @@ class News extends CommonModel
     public static function getTemplate()
     {
         return '{update} {delete}';
+    }
+
+    public static function getAllNews()
+    {
+        $query = self::find()->all();
+        
+        return $query;
     }
 }

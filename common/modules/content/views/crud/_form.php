@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
+use kartik\file\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model common\modules\content\models\Commands */
@@ -11,7 +12,7 @@ use dosamigos\ckeditor\CKEditor;
 
 <div class="<?= $model->formName() ?>-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?php foreach ($model::getFields() as $key => $item): ?>
         <?php switch ($item) {
@@ -28,7 +29,9 @@ use dosamigos\ckeditor\CKEditor;
                 ]);
                 break;
             case 'image':
-                echo $form->field($model, $key)->fileInput();
+                echo $form->field($model, 'file')->widget(FileInput::classname(), [
+                    'options' => ['accept' => 'image/*'],
+                ]);
                 break;
         }?>
     <?php endforeach; ?>

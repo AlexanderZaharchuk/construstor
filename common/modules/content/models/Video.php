@@ -59,4 +59,11 @@ class Video extends \yii\db\ActiveRecord
     {
         return '{update} {delete}';
     }
+    
+    public static function getAllVideos()
+    {
+        $query = self::find()->all();
+        
+        return $query;
+    }
 }

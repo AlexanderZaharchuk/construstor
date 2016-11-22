@@ -60,4 +60,11 @@ class AboutSchool extends \yii\db\ActiveRecord
     {
         return '{update} {delete}';
     }
+    
+    public static function getAllTextAboutSchool()
+    {
+        $query = self::find()->all();
+        
+        return $query;
+    }
 }

@@ -31,6 +31,7 @@ class RegForm extends Model
     public function rules()
     {
         $rules['required'] = [['user_name', 'password'], 'required'];
+        $rules['unique'] = [['user_name'], 'unique'];
         $rules['string'] = [['user_name', 'password'], 'string', 'max' => 255];
         return $rules;
     }

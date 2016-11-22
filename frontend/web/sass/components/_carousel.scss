@@ -1,0 +1,19 @@
+.slick-prev.slick-arrow, .slick-next.slick-arrow {
+  z-index: 1;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  background-color: #ddefd9 !important;
+
+  &:before {
+  color: #2b3733;
+}
+
+}
+
+.slick-prev.slick-arrow {
+  left: -65px;
+}
+.slick-next.slick-arrow {
+  right: -65px;
+}

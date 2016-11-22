@@ -70,8 +70,15 @@ class Reviews extends CommonModel
      */
     public function beforeSave($insert)
     {
-        $this->photo = $this->upload('photo', $this->formName());
+        $this->photo = $this->upload();
         $this->content = Yii::$app->request->post('Reviews')['content'];
         return parent::beforeSave($insert);
+    }
+    
+    public static function getAllReviews()
+    {
+        $query = self::find()->all();
+        
+        return $query;
     }
 }

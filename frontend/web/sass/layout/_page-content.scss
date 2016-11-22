@@ -1,0 +1,259 @@
+.page-personal-area__text {
+  font-size: 16px !important;
+  color: white;
+}
+
+.line-border{
+  border-bottom: 1px solid #e5e1e2;
+}
+
+.pd-0px {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+
+}
+
+.page-personal-area__number-goods {
+  span:first-child {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+}
+
+
+.data-news {
+  color: white;
+}
+
+.score__item {
+  margin-bottom: 15px;
+}
+
+
+.score__footer {
+  text-align: center;
+  margin-bottom: 60px;
+  span {
+    cursor: pointer;
+  }
+
+}
+
+
+.school-information__schedule {
+  margin-bottom: 60px;
+  h3 {
+    text-align: center;
+  }
+
+}
+
+
+.school-information__schedule {
+  border: 2px solid #e5e1e2;
+  h3 {
+    border-bottom: 2px solid #e5e1e2;
+  }
+
+
+}
+
+
+.school-information__wrapper-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+  .schedule__item {
+    h4 {
+      width: 100%;
+      background-color: #e5e1e2;
+      text-align: center;
+    }
+
+  }
+
+
+  .schedule__no-cative {
+    background-color: #e5e1e2;
+    color: transparent;
+  }
+
+
+  .schedule__item {
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 17%;
+    max-width: 17%;
+    border-right: 1px solid #e5e1e2;
+    &:last-child {
+      border: none;
+    }
+
+
+    span {
+      text-align: center;
+      width: 100%;
+      border-bottom: 2px solid #e5e1e2;
+      &:last-child {
+        border: none !important;
+      }
+
+    }
+
+
+  }
+
+
+.score__price, #show-items {
+  color:  white;
+  font-size:24px;
+}
+
+.hidden-content {
+  display: none;
+}
+
+
+
+
+
+.page-content__about-school {
+  p{
+    font-size: 16px;
+    color: $white;
+  }
+}
+.page-header-top__inner {
+  margin-bottom: 60px;
+}
+.page-content__about-school {
+  padding: 15px 30px;
+  h3,h4,p, span {
+    color: $white;
+  }
+  p {
+    font-size: 18px;
+  }
+  span {
+    font-size: 16px;
+  }
+}
+.page-content__wrappers-news-content {
+  h4 {
+    font-size: 16px;
+  }
+}
+.main-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main-gallery__wrapper-items {
+  border: 2px solid #FFFFFF;
+  margin: 3px 3px;
+  img {
+    max-width: 220px;
+    max-height: 140px;
+  }
+}
+.birthday {
+  margin-bottom: 5px !important;
+  margin: 0 auto;
+}
+.page-content__wrapper-hall-fame, .page-content__wrappers-news-content, .page-content__wrapper-reviws {
+  margin-bottom: 60px;
+}
+.page-content__form {
+  margin-bottom: 20px;
+}
+.page-content__form-wrapper {
+  position: relative;
+  padding: 50px 40px;
+  background-color: #fff;
+  margin-bottom: 60px;
+
+  .cross {
+    position: absolute;
+    right: 7%;
+    top: 3%;
+    color: #4f4196;
+  }
+}
+.page-footer {
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 30px;
+  h3 {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translate(-50%, -50%);
+  }
+
+}
+.error {
+  color: red;
+}
+.wrapper-map {
+  box-shadow:0px 0px 20px 0px rgba(50, 50, 50, 0.75);
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.cross, .title-form-footer {
+  cursor: pointer !important;
+}
+.trainer {
+  max-height: 150px;
+  max-width: 100px;
+}
+.page-content__input {
+  border-color: #4f4196 !important;
+  border-radius: 0px !important;
+}
+.wrapper-img-modal {
+  margin-bottom: 25px !important;
+}
+.inf-person {
+  font-size:16px;
+  font-family:'ralewaysemibold', Arial,  Arial, Helvetica, sans-serif;
+  color: #FFFFFF;
+}
+
+.slick-prev.slick-arrow, .slick-next.slick-arrow {
+  background-color: #FFFFFF !important;
+}
+.item-partners__link {
+  margin: 0px 30px;
+}
+.page-content__wrapper-reviws {
+  display: flex;
+  justify-content: space-around;
+  .item-partners__link {
+    img {
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+    p {
+      color: #FFFFFF;
+    }
+  }
+}
+@media (max-width: 1700px) {
+  .navbar-brand {
+    span {
+      font-size:30px;
+    }
+  }
+}
+@media (max-width: 1100px) {
+  .navbar-nav.navbar-nav__top {
+    flex-wrap: wrap;
+  }
+}

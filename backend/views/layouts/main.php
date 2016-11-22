@@ -42,10 +42,22 @@ AppAsset::register($this);
     } else {
         $menuItems = [
             ['label' => Yii::t('app', 'Users'), 'url' => ['/auth/auth/index']],
-            ['label' => Yii::t('app', 'Commands'), 'url' => ['/content/commands']],
             ['label' => Yii::t('app', 'Shop'), 'url' => ['/content/shop']],
             ['label' => Yii::t('app', 'News'), 'url' => ['/content/news']],
-            ['label' => Yii::t('app', 'About School'), 'url' => ['/content/about-school']],
+            [
+                'label' => 'Команды',
+                'items' => [
+                    ['label' => Yii::t('app', 'Команды'), 'url' => ['/content/commands']],
+                    ['label' => Yii::t('app', 'Добавить фото для игрока'), 'url' => ['/content/commands-photo']],
+                ],
+            ],
+            [
+                'label' => 'About School',
+                'items' => [
+                    ['label' => Yii::t('app', 'Add photo'), 'url' => ['/content/about-school-photo']],
+                    ['label' => Yii::t('app', 'Add reviews'), 'url' => ['/content/about-school']],
+                ],
+            ],
             ['label' => Yii::t('app', 'Photo'), 'url' => ['/content/photo']],
             ['label' => Yii::t('app', 'Video'), 'url' => ['/content/video']],
             ['label' => Yii::t('app', 'Graduates'), 'url' => ['/content/graduates']],

@@ -1,0 +1,29 @@
+.btn {
+	background-color: transparent;
+	border-radius: 0px;
+	text-transform: uppercase;
+}
+
+.btn-top-nav {
+	margin: 5px 0px;
+	margin-right: 25px;
+	color: $mindaro;
+	border: 1px solid $mindaro;
+	font-weight: 700;
+		&:hover {
+			border-color: $white;
+			color: $white!important;
+		}
+		&:active{
+			color: $white!important;
+		}
+		&:focus {
+			color: $white!important;
+		}
+
+}
+.btn-form {
+	color: #4f4196;
+	border: 1px solid #4f4196;
+	text-transform: uppercase;
+}

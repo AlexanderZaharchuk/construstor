@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\StringHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\modules\content\models\search */
@@ -44,11 +45,18 @@ $this->params['breadcrumbs'][] = $this->title;
                     $columns[] = [
                         'format' => 'raw',
                         'attribute' => $key,
-                        'value' => $model->$key,
+                        'value' => function ($model) use ($key) {
+                            return StringHelper::truncate($model->$key, 50);
+                        }
                     ];
                     break;
                 default:
-                    $columns[] = $key;
+                    $columns[] = [
+                        'attribute' => $key,
+                        'value' => function ($model) use ($key) {
+                            return StringHelper::truncate($model->$key, 50);
+                        }
+                    ];
             }
         }
         $columns[] = [

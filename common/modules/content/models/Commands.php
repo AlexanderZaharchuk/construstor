@@ -2,6 +2,7 @@
 
 namespace common\modules\content\models;
 
+use kcfinder\session;
 use Yii;
 
 /**
@@ -31,7 +32,7 @@ class Commands extends CommonModel
         return [
 //            [['id', 'category', 'photo', 'first_name', 'last_name'], 'required'],
 //            [['id'], 'integer'],
-            [['category', 'photo', 'first_name', 'last_name'], 'string', 'max' => 255],
+            [['capture', 'category', 'photo', 'first_name', 'last_name'], 'string', 'max' => 255],
         ];
     }
 
@@ -46,6 +47,7 @@ class Commands extends CommonModel
             'photo' => 'Photo',
             'first_name' => 'First Name',
             'last_name' => 'Last Name',
+            'capture' => 'Capture',
         ];
     }
 
@@ -59,6 +61,7 @@ class Commands extends CommonModel
             'photo' => 'image',
             'first_name' => 'string',
             'last_name' => 'string',
+            'capture' => 'text',
         ];
     }
 
@@ -76,7 +79,17 @@ class Commands extends CommonModel
      */
     public function beforeSave($insert)
     {
-        $this->photo = $this->upload('photo', $this->formName());
+        $this->photo = $this->upload();
         return parent::beforeSave($insert);
+    }
+
+    public static function getAllCommands()
+    {
+        $commands = self::find()->groupBy('category')->all();
+        foreach ($commands as $value) {
+            $category[$value->category] = self::find()->where(['category' => $value->category])->all();
+        }
+
+        return isset($category) ? $category : [];
     }
 }

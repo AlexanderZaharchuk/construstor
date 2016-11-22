@@ -13,16 +13,22 @@ use yii;
 class CommonModel extends ActiveRecord
 {
     /**
+     * A field for loading the default file
+     *
+     * @var
+     */
+    public $file;
+
+    /**
      * Save the file to a folder
      *
      * @param $field
-     * @param $folder
      * @return bool
      */
-    public function upload($field, $folder)
+    public function upload($field = 'file')
     {
         $this->$field = UploadedFile::getInstance($this, $field);
-        if ($this->$field->saveAs(Yii::getAlias(YII_BACKEND).'files/'.$folder.'/'.$this->$field)) {
+        if ($this->$field->saveAs(Yii::getAlias(YII_BACKEND).'files/'.$this->formName().'/'.$this->$field)) {
             return $this->$field->name;
         }
 
