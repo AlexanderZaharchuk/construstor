@@ -286,11 +286,7 @@
                                             схема проезда
                                         </h3>
 
-                                        <div class="wrapper-map">
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1868.986456560241!2d35.04716368931364!3d48.511265929337334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe517e4fba36f1e4b!2z0YHRgtCw0LTQuNC-0L0g0J_QtdGC0YDQsCDQm9Cw0LnQutCw!5e0!3m2!1sru!2sua!4v1474478685680"
-                                                    width="600" height="450" frameborder="0"
-                                                    style="border:0" allowfullscreen></iframe>
-                                        </div>
+                                        <div id="map_canvas" style="width: 620px; height: 437px;"></div>
 
                                     </div>
                                     <div class="col-lg-4  col-xs-12">
@@ -300,55 +296,21 @@
                                         </h3>
 
                                         <p>
-                                            Днепропетровская область, г. Днепр, <br>
-                                            Универсальная ул., 18а, (Стадион ВРЗ) <br>
-                                            <b>тел.:</b> 063-321-05-59 <br>
-                                            <b>e-mail:</b> fcstars@gmail.com
+                                            <span id="addressMap"><?= $contacts->address ?></span><br>
+                                            <?= $contacts->description ?><br>
+                                            <b>тел.:</b> <?= $contacts->telephone ?> <br>
+                                            <b>e-mail:</b> <?= $contacts->email ?>
                                         </p>
                                         <hr>
 
                                         <h3 style="color: #000000">
                                             обратная связь
                                         </h3>
-                                        <form id="global-form" action="#" class="page-content__form"
-                                              method="post"
-                                              target="_blank" autocomplete="off">
 
-                                            <div class="form-group">
-                                                <label class="label" for="name">
-                                                    Имя:
-                                                </label>
+                                        <?= $this->render('@frontend/views/layouts/_form', [
+                                            'callback' => $callback
+                                        ]); ?>
 
-                                                <input id="name"
-                                                       placeholder="Имя"
-                                                       class="required  form-control"
-                                                       type="text"
-                                                       name="name">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="label" for="email">
-                                                    Email:
-                                                </label>
-
-                                                <input id="email"
-                                                       placeholder="Email"
-                                                       class="required  form-control"
-                                                       type="email"
-                                                       name="email">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="lable" for="Textarea-1">
-                                                    Сообщение:
-                                                </label>
-                                                <textarea placeholder="Ваше сообщение..." class="form-control" id="Textarea-1" rows="3"></textarea>
-                                            </div>
-
-                                            <button type="submit"  class="btn btn-default">
-                                                Отправить
-                                            </button>
-                                        </form>
                                     </div>
                                 </div>
 
@@ -447,6 +409,8 @@
     </div>
     <!-- END PAGE CONTENT
     ================================================== -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6G_Lqqf75Z3Hl8hFwrXGm2tGKl9KVktQ&callback=initMap" async defer></script>
 
     <?= $this->render('@frontend/views/layouts/_footer', [
         'partners' => $partners

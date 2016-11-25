@@ -20,6 +20,18 @@ return [
     ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'andreev.time@gmail.com', // тот от кого будут приходить письма
+                'password' => 'prostoman128%self', // ...
+                'port' => '587',
+                'encryption' => 'tls',
+            ],
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],

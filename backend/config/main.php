@@ -17,6 +17,15 @@ return [
         ],
         'content' => [
             'class' => 'common\modules\content\Module',
+            'as access' => [
+                'class' => 'yii\filters\AccessControl',
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@']
+                    ],
+                ]
+            ],
         ],
     ],
     'components' => [

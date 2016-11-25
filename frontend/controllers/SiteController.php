@@ -4,7 +4,9 @@ namespace frontend\controllers;
 use common\modules\auth\models\frontend\LoginForm;
 use common\modules\auth\models\User;
 use common\modules\content\models\AboutSchool;
+use common\modules\content\models\Callback;
 use common\modules\content\models\Commands;
+use common\modules\content\models\Contacts;
 use common\modules\content\models\Graduates;
 use common\modules\content\models\Honors;
 use common\modules\content\models\News;
@@ -87,6 +89,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $callback = new Callback();
+        if ($callback->load(Yii::$app->request->post()) && $callback->validate()) {
+            $callback->sendMessage();
+            $this->refresh();
+        }
+
         $shop = Shop::getShopItems();
         $news = News::getAllNews();
         $commands = Commands::getAllCommands();
@@ -97,6 +105,7 @@ class SiteController extends Controller
         $honors = Honors::getAllHonors();
         $reviews = Reviews::getAllReviews();
         $partners = Partners::getAllPartners();
+        $contacts = Contacts::getContact();
 
         return $this->render('index', [
             'commands' => $commands,
@@ -108,7 +117,9 @@ class SiteController extends Controller
             'graduates' => $graduates,
             'honors' => $honors,
             'reviews' => $reviews,
-            'partners' => $partners
+            'partners' => $partners,
+            'contacts' => $contacts,
+            'callback' => $callback
         ]);
     }
 }

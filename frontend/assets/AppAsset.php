@@ -21,7 +21,8 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/libs.min.js',
-        'js/common.js'
+        'js/common.js',
+        'js/googleMap.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

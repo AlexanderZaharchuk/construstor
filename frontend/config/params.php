@@ -1,4 +1,4 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'andreev.time@gmail.com' // email, на который будут приходить заявки и отзывы
 ];

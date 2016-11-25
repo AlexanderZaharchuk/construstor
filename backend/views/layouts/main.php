@@ -35,15 +35,27 @@ AppAsset::register($this);
         ],
     ]);
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']];
+        $menuItems[] = ['label' => Yii::t('app', 'войти'), 'url' => ['/site/login']];
         if (Yii::$app->params['registration']) {
-            $menuItems[] = ['label' => Yii::t('app', 'Registration'), 'url' => ['/site/reg']];
+            $menuItems[] = ['label' => Yii::t('app', 'Регистрация'), 'url' => ['/site/reg']];
         }
     } else {
         $menuItems = [
-            ['label' => Yii::t('app', 'Users'), 'url' => ['/auth/auth/index']],
-            ['label' => Yii::t('app', 'Shop'), 'url' => ['/content/shop']],
-            ['label' => Yii::t('app', 'News'), 'url' => ['/content/news']],
+            ['label' => Yii::t('app', 'Пользователи'), 'url' => ['/auth/auth/index']],
+            [
+                'label' => 'Разделы',
+                'items' => [
+                    ['label' => Yii::t('app', 'Магазин'), 'url' => ['/content/shop']],
+                    ['label' => Yii::t('app', 'Новости'), 'url' => ['/content/news']],
+                    ['label' => Yii::t('app', 'Фото'), 'url' => ['/content/photo']],
+                    ['label' => Yii::t('app', 'Видео'), 'url' => ['/content/video']],
+                    ['label' => Yii::t('app', 'Выпускники'), 'url' => ['/content/graduates']],
+                    ['label' => Yii::t('app', 'Награды'), 'url' => ['/content/honors']],
+                    ['label' => Yii::t('app', 'Отзывы'), 'url' => ['/content/reviews']],
+                    ['label' => Yii::t('app', 'Партнеры'), 'url' => ['/content/partners']],
+                    ['label' => Yii::t('app', 'Контакты'), 'url' => ['/content/contacts']],
+                ],
+            ],
             [
                 'label' => 'Команды',
                 'items' => [
@@ -52,23 +64,17 @@ AppAsset::register($this);
                 ],
             ],
             [
-                'label' => 'About School',
+                'label' => 'О школе',
                 'items' => [
-                    ['label' => Yii::t('app', 'Add photo'), 'url' => ['/content/about-school-photo']],
-                    ['label' => Yii::t('app', 'Add reviews'), 'url' => ['/content/about-school']],
+                    ['label' => Yii::t('app', 'Добавить фото'), 'url' => ['/content/about-school-photo']],
+                    ['label' => Yii::t('app', 'Добавить запись'), 'url' => ['/content/about-school']],
                 ],
             ],
-            ['label' => Yii::t('app', 'Photo'), 'url' => ['/content/photo']],
-            ['label' => Yii::t('app', 'Video'), 'url' => ['/content/video']],
-            ['label' => Yii::t('app', 'Graduates'), 'url' => ['/content/graduates']],
-            ['label' => Yii::t('app', 'Honors'), 'url' => ['/content/honors']],
-            ['label' => Yii::t('app', 'Reviews'), 'url' => ['/content/reviews']],
-            ['label' => Yii::t('app', 'Partners'), 'url' => ['/content/partners']],
         ];
             $menuItems[] = '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->user_name . ')',
+                    'Выйти (' . Yii::$app->user->identity->user_name . ')',
                     ['class' => 'btn btn-link']
                 )
                 . Html::endForm()
