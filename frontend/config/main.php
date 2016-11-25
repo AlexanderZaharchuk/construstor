@@ -25,11 +25,11 @@ return [
             'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.gmail.com',
-                'username' => 'andreev.time@gmail.com', // тот от кого будут приходить письма
-                'password' => 'prostoman128%self', // ...
+                'host' => 'smtp.mail.ru',
+                'username' => 'football.callback@mail.ru', // тот от кого будут приходить письма
+                'password' => 'qwedsa123', // ...
                 'port' => '587',
-                'encryption' => 'tls',
+                'encryption' => 'TLS',
             ],
         ],
         'request' => [

@@ -42,12 +42,11 @@ class Commands extends CommonModel
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'category' => 'Category',
-            'photo' => 'Photo',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'capture' => 'Capture',
+            'category' => Yii::t('app', 'Category'),
+            'photo' => Yii::t('app', 'Photo'),
+            'first_name' => Yii::t('app', 'First Name'),
+            'last_name' => Yii::t('app', 'Last Name'),
+            'capture' => Yii::t('app', 'Capture'),
         ];
     }
 

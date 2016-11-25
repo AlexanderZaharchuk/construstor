@@ -50,9 +50,8 @@ class News extends CommonModel
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'content' => 'Content',
-            'created_at' => 'Created At',
+            'content' => Yii::t('app', 'Content'),
+            'created_at' => Yii::t('app', 'Created At'),
         ];
     }
 

@@ -16,8 +16,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
+    <?php
+    $denyCreate = [
+            'Contacts'
+        ]; ?>
     <p>
-        <?= Html::a(Yii::t('app', 'Create Commands'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?php if (!in_array($model->formName(), $denyCreate)): ?>
+            <?= Html::a(Yii::t('app', 'Create'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?php endif; ?>
     </p>
     <?php
         $columns[] = ['class' => 'yii\grid\SerialColumn'];

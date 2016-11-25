@@ -31,7 +31,7 @@ class Shop extends CommonModel
 //            [['id', 'photo', 'capture', 'price'], 'required'],
 //            [['id'], 'integer'],
             [['capture', 'price'], 'string', 'max' => 255],
-//            [['photo'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            [['photo'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -41,10 +41,10 @@ class Shop extends CommonModel
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'photo' => 'Photo',
-            'capture' => 'Capture',
-            'price' => 'Price',
+            'id' => Yii::t('app', 'ID'),
+            'photo' => Yii::t('app', 'Photo'),
+            'capture' => Yii::t('app', 'Capture'),
+            'price' => Yii::t('app', 'Price'),
         ];
     }
 

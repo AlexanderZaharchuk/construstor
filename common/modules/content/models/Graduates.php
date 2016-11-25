@@ -38,9 +38,8 @@ class Graduates extends CommonModel
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'photo' => 'Photo',
-            'name' => 'Name',
+            'photo' => Yii::t('app', 'Photo'),
+            'name' => Yii::t('app', 'Name'),
         ];
     }
 

@@ -39,9 +39,8 @@ class AboutSchoolPhoto extends CommonModel
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'photo' => 'Photo',
-            'link' => 'Link (заполняется автоматически после сохранения)',
+            'photo' => Yii::t('app', 'Photo'),
+            'link' => Yii::t('app', 'Link (filled in automatically)'),
         ];
     }
 

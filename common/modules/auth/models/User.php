@@ -49,10 +49,9 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             'id' => Yii::t('app', 'ID'),
             'user_name' => Yii::t('app', 'User Name'),
-            'password_hash' => Yii::t('app', 'Password Hash'),
-            'auth_key' => Yii::t('app', 'Auth Key'),
-            'created_at' => Yii::t('app', 'Create At'),
-            'updated_at' => Yii::t('app', 'Update At'),
+            'photo' => Yii::t('app', 'Photo'),
+            'name' => Yii::t('app', 'Name'),
+            'created_at' => Yii::t('app', 'Registration data'),
         ];
     }
 

@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\modules\auth\models\search\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Users';
+$this->title = Yii::t('app', 'Users');
 $this->params['breadcrumbs'][] = $this->title;
 $this->registerJsFile('/js/checkedStatus.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
 ?>
@@ -51,7 +51,10 @@ $this->registerJsFile('/js/checkedStatus.js', ['depends' => [\yii\web\JqueryAsse
             ],
             // 'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {delete}'
+            ],
         ],
     ]); ?>
 </div>

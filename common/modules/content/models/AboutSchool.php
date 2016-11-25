@@ -37,8 +37,7 @@ class AboutSchool extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'text' => 'Text',
+            'text' => Yii::t('app', 'Text'),
         ];
     }
 

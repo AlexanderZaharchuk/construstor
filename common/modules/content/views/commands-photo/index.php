@@ -7,7 +7,7 @@ use common\modules\content\models\CommandsPhoto;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Commands Photos';
+$this->title = Yii::t('app', 'Commands Photos');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="commands-photo-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Commands Photo', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

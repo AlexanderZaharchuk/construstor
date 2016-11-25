@@ -38,8 +38,7 @@ class Photo extends CommonModel
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'photo' => 'Photo',
+            'photo' => Yii::t('app', 'Photo'),
         ];
     }
 

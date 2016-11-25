@@ -39,10 +39,10 @@ class Contacts extends CommonModel
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'address' => 'Address',
-            'telephone' => 'Telephone',
-            'email' => 'Email',
+            'address' => Yii::t('app', 'Address'),
+            'telephone' => Yii::t('app', 'Telephone'),
+            'email' => Yii::t('app', 'Email'),
+            'description' => Yii::t('app', 'Description'),
         ];
     }
 
@@ -64,7 +64,7 @@ class Contacts extends CommonModel
      */
     public static function getTemplate()
     {
-        return '{update} {delete}';
+        return '{update}';
     }
 
     public static function getContact()

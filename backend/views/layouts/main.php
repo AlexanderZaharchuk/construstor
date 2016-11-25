@@ -41,33 +41,33 @@ AppAsset::register($this);
         }
     } else {
         $menuItems = [
-            ['label' => Yii::t('app', 'Пользователи'), 'url' => ['/auth/auth/index']],
+            ['label' => Yii::t('app', 'Users'), 'url' => ['/auth/auth/index']],
             [
                 'label' => 'Разделы',
                 'items' => [
-                    ['label' => Yii::t('app', 'Магазин'), 'url' => ['/content/shop']],
-                    ['label' => Yii::t('app', 'Новости'), 'url' => ['/content/news']],
-                    ['label' => Yii::t('app', 'Фото'), 'url' => ['/content/photo']],
-                    ['label' => Yii::t('app', 'Видео'), 'url' => ['/content/video']],
-                    ['label' => Yii::t('app', 'Выпускники'), 'url' => ['/content/graduates']],
-                    ['label' => Yii::t('app', 'Награды'), 'url' => ['/content/honors']],
-                    ['label' => Yii::t('app', 'Отзывы'), 'url' => ['/content/reviews']],
-                    ['label' => Yii::t('app', 'Партнеры'), 'url' => ['/content/partners']],
-                    ['label' => Yii::t('app', 'Контакты'), 'url' => ['/content/contacts']],
+                    ['label' => Yii::t('app', 'Shop'), 'url' => ['/content/shop']],
+                    ['label' => Yii::t('app', 'News'), 'url' => ['/content/news']],
+                    ['label' => Yii::t('app', 'Photo'), 'url' => ['/content/photo']],
+                    ['label' => Yii::t('app', 'Video'), 'url' => ['/content/video']],
+                    ['label' => Yii::t('app', 'Graduates'), 'url' => ['/content/graduates']],
+                    ['label' => Yii::t('app', 'Honors'), 'url' => ['/content/honors']],
+                    ['label' => Yii::t('app', 'Reviews'), 'url' => ['/content/reviews']],
+                    ['label' => Yii::t('app', 'Partners'), 'url' => ['/content/partners']],
+                    ['label' => Yii::t('app', 'Contacts'), 'url' => ['/content/contacts']],
                 ],
             ],
             [
-                'label' => 'Команды',
+                'label' => Yii::t('app', 'Commands'),
                 'items' => [
-                    ['label' => Yii::t('app', 'Команды'), 'url' => ['/content/commands']],
-                    ['label' => Yii::t('app', 'Добавить фото для игрока'), 'url' => ['/content/commands-photo']],
+                    ['label' => Yii::t('app', 'Commands'), 'url' => ['/content/commands']],
+                    ['label' => Yii::t('app', 'Create Commands Photo'), 'url' => ['/content/commands-photo']],
                 ],
             ],
             [
-                'label' => 'О школе',
+                'label' => Yii::t('app', 'About school'),
                 'items' => [
-                    ['label' => Yii::t('app', 'Добавить фото'), 'url' => ['/content/about-school-photo']],
-                    ['label' => Yii::t('app', 'Добавить запись'), 'url' => ['/content/about-school']],
+                    ['label' => Yii::t('app', 'Add photo'), 'url' => ['/content/about-school-photo']],
+                    ['label' => Yii::t('app', 'Add record'), 'url' => ['/content/about-school']],
                 ],
             ],
         ];

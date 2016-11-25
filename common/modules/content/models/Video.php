@@ -37,8 +37,7 @@ class Video extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'video' => 'Video',
+            'video' => Yii::t('app', 'Video'),
         ];
     }
 

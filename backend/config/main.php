@@ -11,6 +11,8 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
+    'language' => 'ru',
+    'sourceLanguage' => 'en-US',
     'modules' => [
         'auth' => [
             'class' => 'common\modules\auth\Module',

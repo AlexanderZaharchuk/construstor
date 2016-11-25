@@ -39,9 +39,8 @@ class Reviews extends CommonModel
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'photo' => 'Photo',
-            'content' => 'Content',
+            'photo' => Yii::t('app', 'Photo'),
+            'content' => Yii::t('app', 'Content'),
         ];
     }
 
