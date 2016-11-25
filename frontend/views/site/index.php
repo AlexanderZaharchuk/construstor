@@ -9,7 +9,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <p class="page-personal-area__number-goods"><span>Товары</span><span>16</span></p>
+                            <p class="page-personal-area__number-goods"><span>Количество товаров: </span><span><?= count($shop); ?></span></p>
                             <div class="score">
                                 <?php foreach ($shop as $key => $item): ?>
                                 <?php $key++; $class = $key == 1 ? "" : "hidden-content" ?>
