@@ -18,7 +18,7 @@
                                     : "" ?>
                                     <div class="col-lg-3 col-xs-6 col-sm-3">
                                         <div class="score__item">
-                                            <div class="score__wrap-img"><img class="img-responsive" src="<?= BACKEND_IMG.$item->formName().'/'.$item->photo ?>"></div>
+                                            <div class="score__wrap-img"><img style="max-width: 240px; max-height: 240px; height: 100% !important;" class="img-responsive" src="<?= BACKEND_IMG.$item->formName().'/'.$item->photo ?>"></div>
                                             <div class="score__header">
                                                 <h4 class="score__product-description"><?= $item->capture ?></h4><span class="score__price"><?= $item->price ?></span>
                                             </div>
