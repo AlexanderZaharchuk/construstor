@@ -4,4 +4,4 @@
 
 $this->title = 'Welcome to the admin panel!';
 ?>
-<h1><?= Yii::t('app', 'Welcome to the admin panel!') ?></h1>
+<h1><?= Yii::t('app', 'Добро пожаловать в панель администратора!') ?></h1>
