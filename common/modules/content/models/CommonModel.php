@@ -28,7 +28,7 @@ class CommonModel extends ActiveRecord
     public function upload($field = 'file')
     {
         $this->$field = UploadedFile::getInstance($this, $field);
-        if ($this->$field->saveAs(Yii::getAlias(YII_BACKEND).'files/'.$this->formName().'/'.$this->$field)) {
+        if ($this->$field->saveAs(Yii::getAlias(YII_BACKEND_WEB).'files/'.$this->formName().'/'.$this->$field)) {
             return $this->$field->name;
         }
 

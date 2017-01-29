@@ -29,7 +29,8 @@ class Reviews extends CommonModel
         return [
 //            [['photo', 'content'], 'required'],
 //            [['content'], 'string'],
-            [['photo'], 'string', 'max' => 255],
+//            [['photo'], 'string', 'max' => 255],
+            [['photo', 'name', 'content'], 'safe'],
         ];
     }
 
@@ -51,6 +52,7 @@ class Reviews extends CommonModel
     {
         return [
             'photo' => 'image',
+            'name' => 'string',
             'content' => 'text',
         ];
     }
@@ -69,7 +71,7 @@ class Reviews extends CommonModel
      */
     public function beforeSave($insert)
     {
-        $this->photo = $this->upload();
+        $this->photo = $this->upload('photo');
         $this->content = Yii::$app->request->post('Reviews')['content'];
         return parent::beforeSave($insert);
     }

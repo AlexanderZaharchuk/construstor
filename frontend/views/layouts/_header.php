@@ -33,15 +33,15 @@
                      id="bs-example-navbar-collapse-1">
                     <ul class="nav  navbar-nav  navbar-nav__top">
 
-<!--                        <li class="navbar-nav__top-first-item">-->
-<!--                            <a href="#">-->
-<!--                                Личный кабинет-->
-<!--                            </a>-->
-<!--                        </li>-->
+                        <li class="navbar-nav__top-first-item">
+                            <a href="<?php echo !\common\modules\auth\models\User::getStatus() ? '#loginform' : '?r=site/user' ?>">
+                                Личный кабинет
+                            </a>
+                        </li>
 
                         <?php if($route == 'site/index' || $route == '') : ?>
                         <li>
-                            <a href="#viewing">
+                            <a href="#casting">
                                 <button class="btn  btn-top-nav" type="button" id="#">
                                     Записаться на просмтотр
                                 </button>
@@ -121,11 +121,11 @@
                             </a>
                         </li>
 
-                        <li class="navbar-nav__bottom-items">
-                            <a class="navbar-nav__bottom-item pull-left" href="#bewLink">
-                                новости
-                            </a>
-                        </li>
+<!--                        <li class="navbar-nav__bottom-items">-->
+<!--                            <a class="navbar-nav__bottom-item pull-left" href="#bewLink">-->
+<!--                                новости-->
+<!--                            </a>-->
+<!--                        </li>-->
                         <li class="navbar-nav__bottom-items">
                             <a class="navbar-nav__bottom-item pull-left"
                                href="#achievementsLink">
@@ -145,11 +145,11 @@
                                 наш адрес
                             </a>
                         </li>
-                        <li class="navbar-nav__bottom-items">
-                            <a class="navbar-nav__bottom-item pull-left" href="#">
-                                магазин
-                            </a>
-                        </li>
+<!--                        <li class="navbar-nav__bottom-items">-->
+<!--                            <a class="navbar-nav__bottom-item pull-left" href="#shop">-->
+<!--                                магазин-->
+<!--                            </a>-->
+<!--                        </li>-->
                     </ul>
                     <?php endif; ?>
                 </div><!-- /.navbar-collapse -->

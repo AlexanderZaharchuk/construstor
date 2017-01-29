@@ -55,6 +55,7 @@ AppAsset::register($this);
                     ['label' => Yii::t('app', 'Reviews'), 'url' => ['/content/reviews']],
                     ['label' => Yii::t('app', 'Partners'), 'url' => ['/content/partners']],
                     ['label' => Yii::t('app', 'Contacts'), 'url' => ['/content/contacts']],
+                    ['label' => Yii::t('app', 'Записаться на просмотр'), 'url' => ['/content/casting']],
                 ],
             ],
             [

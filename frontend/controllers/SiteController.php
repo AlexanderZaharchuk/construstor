@@ -5,6 +5,7 @@ use common\modules\auth\models\frontend\LoginForm;
 use common\modules\auth\models\User;
 use common\modules\content\models\AboutSchool;
 use common\modules\content\models\Callback;
+use common\modules\content\models\Casting;
 use common\modules\content\models\Commands;
 use common\modules\content\models\Contacts;
 use common\modules\content\models\Graduates;
@@ -107,6 +108,9 @@ class SiteController extends Controller
         $partners = Partners::getAllPartners();
         $contacts = Contacts::getContact();
 
+        $casting = new Casting();
+        $reviewsForm = new Reviews();
+
         return $this->render('index', [
             'commands' => $commands,
             'shop' => $shop,
@@ -119,7 +123,9 @@ class SiteController extends Controller
             'reviews' => $reviews,
             'partners' => $partners,
             'contacts' => $contacts,
-            'callback' => $callback
+            'callback' => $callback,
+            'casting' => $casting,
+            'reviewsForm' => $reviewsForm
         ]);
     }
 
@@ -134,6 +140,38 @@ class SiteController extends Controller
             'news' => $news,
             'partners' => $partners,
         ]);
+    }
 
+    public function actionUser()
+    {
+        $shop = Shop::getShopItems();
+        $news = News::getAllNews();
+        $partners = Partners::getAllPartners();
+
+        return $this->render('profile', [
+            'shop' => $shop,
+            'news' => $news,
+            'partners' => $partners,
+        ]);
+    }
+
+    public function actionCasting()
+    {
+        $post = Yii::$app->request->post();
+        $casting = new Casting();
+        $casting->load($post);
+        $casting->save();
+
+        $this->redirect('/');
+    }
+
+    public function actionReviews()
+    {
+        $post = Yii::$app->request->post();
+        $review = new Reviews();
+        $review->load($post);
+        $review->save();
+
+        $this->redirect('/');
     }
 }

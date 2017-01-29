@@ -2,6 +2,7 @@
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 defined('YII_BACKEND') or define('YII_BACKEND', '@backend/web/');
+defined('YII_BACKEND_WEB') or define('YII_BACKEND_WEB', '@backend/web/');
 defined('BACKEND_IMG') or define('BACKEND_IMG', 'http://fc-stars.s-host.net/backend/web/files/');
 
 require(__DIR__ . '/../../vendor/autoload.php');
