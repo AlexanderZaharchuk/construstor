@@ -2,7 +2,7 @@
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 defined('YII_BACKEND') or define('YII_BACKEND', '@backend/');
-defined('BACKEND_IMG') or define('BACKEND_IMG', 'http://localhost/other_projects/constructor/backend/web/files/');
+defined('BACKEND_IMG') or define('BACKEND_IMG', 'http://fc-stars.s-host.net/backend/web/files/');
 
 require(__DIR__ . '/../../vendor/autoload.php');
 require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');

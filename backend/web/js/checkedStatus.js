@@ -3,8 +3,9 @@ $("document").ready(function() {
         $('div.alert').empty();
         var id = $(this).val();
         var checked = $(this).is(":checked") ? 1 : 0;
-        $.post({
-            url: '/auth/ajax/checked-status',
+        $.ajax({
+            method:"post",
+            url: '/backend/web/index.php?r=auth/ajax/checked-status',
             dataType: 'json',
             data: {
                 record: {

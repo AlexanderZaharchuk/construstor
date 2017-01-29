@@ -9,7 +9,7 @@ use yii\widgets\Pjax;
 
 $this->title = Yii::t('app', 'Users');
 $this->params['breadcrumbs'][] = $this->title;
-$this->registerJsFile('/js/checkedStatus.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
+$this->registerJsFile('backend/web/js/checkedStatus.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
 ?>
 <div class="user-index">
 
@@ -38,7 +38,7 @@ $this->registerJsFile('/js/checkedStatus.js', ['depends' => [\yii\web\JqueryAsse
                 'attribute' => 'photo',
                 'format' => 'html',
                 'value' => function ($model) {
-                    return Html::img('/files/' . $model->photo, ['width' => '100px']);
+                    return Html::img(BACKEND_IMG.$model->photo, ['width' => '100px']);
                 },
             ],
              'name',

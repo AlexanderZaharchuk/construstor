@@ -61,7 +61,7 @@ class News extends CommonModel
     public static function getFields()
     {
         return [
-            'content' => 'text',
+            'content' => 'CKEditor',
             'created_at' => 'data',
         ];
     }
@@ -78,6 +78,13 @@ class News extends CommonModel
     {
         $query = self::find()->all();
         
+        return $query;
+    }
+
+    public static function getNewsById($id)
+    {
+        $query = self::find()->where(['id' => $id])->one();
+
         return $query;
     }
 }

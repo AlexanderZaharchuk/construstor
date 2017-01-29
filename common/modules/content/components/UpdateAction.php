@@ -13,7 +13,7 @@ class UpdateAction extends CrudAction
     public $model;
     public $htmlClass;
     public $view = 'update';
-    
+
     /**
      * @return string|yii\web\Response
      * @throws yii\web\NotFoundHttpException

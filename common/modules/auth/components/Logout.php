@@ -11,7 +11,10 @@ class Logout extends Action
     public function run()
     {
         Yii::$app->user->logout();
+        if ($_SERVER['HTTP_REFERER'] == 'http://fc-stars.s-host.net/backend/web/index.php') {
+            return Yii::$app->controller->redirect('http://fc-stars.s-host.net/backend/web/index.php');
+        }
 
-        return Yii::$app->controller->goHome();
+        return Yii::$app->controller->redirect('/');
     }
 }

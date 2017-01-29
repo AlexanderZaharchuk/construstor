@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => $key,
                         'format' => 'html',
                         'value' => function ($model) use ($key) {
-                            return Html::img('/files/'.$model->formName().'/'.$model->$key, ['width' => '100px']);
+                            return Html::img(BACKEND_IMG.$model->formName().'/'.$model->$key, ['width' => '100px']);
                         },
                     ];
                     break;
@@ -52,6 +52,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         'format' => 'raw',
                         'attribute' => $key,
                         'value' => function ($model) use ($key) {
+                            if (substr($model->$key, 0, 1) == '<') {
+                                return 'Начните редактировать, для просмотра';
+                            }
                             return StringHelper::truncate($model->$key, 50);
                         }
                     ];

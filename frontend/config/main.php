@@ -29,7 +29,7 @@ return [
                 'username' => 'football.callback@mail.ru', // тот от кого будут приходить письма
                 'password' => 'qwedsa123', // ...
                 'port' => '587',
-                'encryption' => 'TLS',
+                'encryption' => 'tls',
             ],
         ],
         'request' => [
@@ -56,12 +56,12 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
+//        'urlManager' => [
+//            'enablePrettyUrl' => true,
+//            'showScriptName' => false,
+//            'rules' => [
+//            ],
+//        ],
         'assetManager' => [
             'bundles' => [
                 'linkAssets' => false

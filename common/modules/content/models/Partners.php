@@ -29,6 +29,7 @@ class Partners extends CommonModel
 //            [['id', 'photo'], 'required'],
 //            [['id'], 'integer'],
             [['photo'], 'string', 'max' => 255],
+            [['link'], 'string', 'max' => 255],
         ];
     }
 
@@ -49,6 +50,7 @@ class Partners extends CommonModel
     {
         return [
             'photo' => 'image',
+            'link' => 'string',
         ];
     }
 

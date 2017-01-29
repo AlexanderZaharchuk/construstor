@@ -3,6 +3,7 @@
 namespace common\modules\content\controllers;
 
 
+use common\modules\auth\models\User;
 use common\modules\content\models\Commands;
 use common\modules\content\models\CommandsPhoto;
 use yii\web\Controller;
@@ -31,6 +32,19 @@ class AjaxController extends Controller
         $result['domain'] = BACKEND_IMG.'CommandsPhoto/';
 
         Yii::$app->response->format = Response::FORMAT_JSON;
+
+        return $result;
+    }
+
+    public function actionGetUsername()
+    {
+        $username = Yii::$app->request->post()['user_name'];
+        $model = User::find()->where(['user_name' => $username])->one();
+        if ($model) {
+            $result = true;
+        } else {
+            $result = false;
+        }
 
         return $result;
     }

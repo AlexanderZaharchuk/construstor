@@ -47,6 +47,26 @@ class Callback extends CommonModel
         ];
     }
 
+    /**
+     * @return array
+     */
+    public static function getFields()
+    {
+        return [
+            'name'  => 'string',
+            'email'  => 'string',
+            'message'  => 'text',
+        ];
+    }
+
+    /**
+     * @return string
+     */
+    public static function getTemplate()
+    {
+        return '{update} {delete}';
+    }
+
     public function sendMessage()
     {
         $htmlBody = "<b>Имя: </b>$this->name<br><b>E-mail: </b>$this->email<br><b>Сообщение: </b>$this->message";

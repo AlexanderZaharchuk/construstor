@@ -91,7 +91,7 @@ class SiteController extends Controller
     {
         $callback = new Callback();
         if ($callback->load(Yii::$app->request->post()) && $callback->validate()) {
-            $callback->sendMessage();
+            $callback->save();
             $this->refresh();
         }
 
@@ -121,5 +121,19 @@ class SiteController extends Controller
             'contacts' => $contacts,
             'callback' => $callback
         ]);
+    }
+
+    public function actionNews($id)
+    {
+        $shop = Shop::getShopItems();
+        $news = News::getNewsById($id);
+        $partners = Partners::getAllPartners();
+
+        return $this->render('news', [
+            'shop' => $shop,
+            'news' => $news,
+            'partners' => $partners,
+        ]);
+
     }
 }

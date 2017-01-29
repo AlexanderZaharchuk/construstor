@@ -18,10 +18,10 @@ $this->registerJs('
         'action' => $action
     ]); ?>
 
-        <?= $form->field($model, 'user_name')->label('Ваш логин') ?>
+        <?= $form->field($model, 'user_name')->label('Ваш логин (разрешены символы: A-Z, a-z, 0-9, нижнее подчеркивание)') ?>
         <?= $form->field($model, 'password')->label('Ваш пароль') ?>
         <?= $form->field($model, 'photo')->fileInput()->label('Ваше фото') ?>
-        <?= $form->field($model, 'name')->label('Ваше имя') ?>
+        <?= $form->field($model, 'name')->label('Ваше имя и фамилия') ?>
 
         <div class="form-group">
             <?= Html::submitButton(Yii::t('app', 'Submit'), ['class' => 'btn btn-primary']) ?>

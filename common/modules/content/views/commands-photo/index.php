@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'photo',
                 'format' => 'html',
                 'value' => function ($model) {
-                    return Html::img('/files/'.$model->formName().'/'.$model->photo, ['width' => '100px']);
+                    return Html::img(BACKEND_IMG.$model->formName().'/'.$model->photo, ['width' => '100px']);
                 },
             ],
             [

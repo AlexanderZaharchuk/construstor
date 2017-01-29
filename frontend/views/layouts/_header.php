@@ -1,3 +1,4 @@
+<?php $route = Yii::$app->request->get('r'); ?>
 <!--============ BEGIN header-->
 
 <nav class="navbar navbar-default  navbar-fixed-top">
@@ -15,9 +16,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <img class="navbar-brand  img-circle "
-                             src="img/logotype.png"
+                             src="img/foot_small.jpg"
                              alt="Logotype">
                 <span class="hidden-sm  hidden-xs">
                 фш звёзды
@@ -32,12 +33,13 @@
                      id="bs-example-navbar-collapse-1">
                     <ul class="nav  navbar-nav  navbar-nav__top">
 
-                        <li class="navbar-nav__top-first-item">
-                            <a href="#">
-                                Личный кабинет
-                            </a>
-                        </li>
+<!--                        <li class="navbar-nav__top-first-item">-->
+<!--                            <a href="#">-->
+<!--                                Личный кабинет-->
+<!--                            </a>-->
+<!--                        </li>-->
 
+                        <?php if($route == 'site/index' || $route == '') : ?>
                         <li>
                             <a href="#viewing">
                                 <button class="btn  btn-top-nav" type="button" id="#">
@@ -45,6 +47,7 @@
                                 </button>
                             </a>
                         </li>
+                        <?php endif; ?>
 
                         <li>
 
@@ -63,7 +66,8 @@
                                     </a>
                                 </li>
                                 <li class="pull-left">
-                                    <a class="social-links__link" href="#"
+                                    <a class="social-links__link"
+                                       href="https://www.youtube.com/channel/UCmvb8PeYwkTwnI5JmEh1"
                                        title="go to Youtube"
                                        target="_blank">
                                         <i class="fa fa-youtube"></i>
@@ -71,7 +75,9 @@
                                 </li>
 
                                 <li class="pull-left">
-                                    <a class="social-links__link" href="#" title=""
+                                    <a class="social-links__link"
+                                       href="https://www.instagram.com/school_football_stars/"
+                                       title=""
                                        target="_blank">
                                         <i class="fa fa-instagram"></i>
                                     </a>
@@ -93,6 +99,7 @@
                         </li>
                     </ul>
 
+                    <?php if($route == 'site/index' || $route == '') : ?>
                     <ul class="nav navbar-nav  navbar-nav__bottom">
                         <li class="navbar-nav__bottom-items">
                             <a class="navbar-nav__bottom-item pull-left"
@@ -144,6 +151,7 @@
                             </a>
                         </li>
                     </ul>
+                    <?php endif; ?>
                 </div><!-- /.navbar-collapse -->
             </div>
 

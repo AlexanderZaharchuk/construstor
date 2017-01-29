@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\modules\content\models\Commands */
 
-$this->title = Yii::t('app', 'Update {modelClass}: ', [
+$this->title = Yii::t('app', 'Обновить {modelClass}: ', [
     'modelClass' => Yii::t('app', $model->formName()),
 ]) . $model->id;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', $model->formName()), 'url' => ['index']];

@@ -11,8 +11,11 @@
 
                     <?php foreach ($partners as $item): ?>
                         <div class="page-footer__item">
-                            <img class="img-responsive" src="<?= BACKEND_IMG.$item->formName().'/'.$item->photo ?>"
-                                 alt="partner">
+                            <a href="http://www.<?= $item->link ?>">
+                                <img class="img-responsive"
+                                     src="<?= BACKEND_IMG . $item->formName() . '/' . $item->photo ?>"
+                                     alt="partner">
+                            </a>
                         </div>
                     <?php endforeach; ?>
 

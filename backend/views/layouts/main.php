@@ -49,7 +49,8 @@ AppAsset::register($this);
                     ['label' => Yii::t('app', 'News'), 'url' => ['/content/news']],
                     ['label' => Yii::t('app', 'Photo'), 'url' => ['/content/photo']],
                     ['label' => Yii::t('app', 'Video'), 'url' => ['/content/video']],
-                    ['label' => Yii::t('app', 'Graduates'), 'url' => ['/content/graduates']],
+//                    ['label' => Yii::t('app', 'Graduates'), 'url' => ['/content/graduates']],
+                    ['label' => Yii::t('app', 'Callback'), 'url' => ['/content/callback']],
                     ['label' => Yii::t('app', 'Honors'), 'url' => ['/content/honors']],
                     ['label' => Yii::t('app', 'Reviews'), 'url' => ['/content/reviews']],
                     ['label' => Yii::t('app', 'Partners'), 'url' => ['/content/partners']],
@@ -66,10 +67,10 @@ AppAsset::register($this);
             [
                 'label' => Yii::t('app', 'About school'),
                 'items' => [
-                    ['label' => Yii::t('app', 'Add photo'), 'url' => ['/content/about-school-photo']],
                     ['label' => Yii::t('app', 'Add record'), 'url' => ['/content/about-school']],
                 ],
             ],
+            ['label' => Yii::t('app', 'Add photo'), 'url' => ['/content/about-school-photo']],
         ];
             $menuItems[] = '<li>'
                 . Html::beginForm(['/site/logout'], 'post')

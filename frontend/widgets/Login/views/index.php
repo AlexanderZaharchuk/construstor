@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
         'action' => $action
     ]); ?>
 
-        <?= $form->field($model, 'user_name')->label('Ваше логин') ?>
+        <?= $form->field($model, 'user_name')->label('Ваш логин') ?>
         <?= $form->field($model, 'password')->label('Ваш пароль') ?>
 
     <div class="form-group">

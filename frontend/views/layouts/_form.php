@@ -9,7 +9,9 @@ use yii\widgets\ActiveForm;
 ?>
 <div class="form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['onsubmit' => 'alert("Ваше сообщение было отправлено.")']
+    ]); ?>
 
         <?= $form->field($callback, 'name')->label('Ваше имя:') ?>
         <?= $form->field($callback, 'email')->label('Ваш e-mail:') ?>

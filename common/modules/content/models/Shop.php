@@ -30,8 +30,9 @@ class Shop extends CommonModel
         return [
 //            [['id', 'photo', 'capture', 'price'], 'required'],
 //            [['id'], 'integer'],
-            [['capture', 'price'], 'string', 'max' => 255],
-            [['photo'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+//            [['capture', 'price'], 'string', 'max' => 255],
+//            [['photo'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            [['photo', 'capture', 'price'], 'safe'],
         ];
     }
 

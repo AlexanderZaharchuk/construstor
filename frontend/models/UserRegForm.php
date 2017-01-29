@@ -33,7 +33,7 @@ class UserRegForm extends RegForm
     public function upload()
     {
         $this->photo = UploadedFile::getInstance($this, 'photo');
-        if ($this->photo->saveAs(Yii::getAlias(YII_BACKEND) . 'files/' . $this->photo)) {
+        if ($this->photo->saveAs(Yii::getAlias(YII_BACKEND) . 'web/files/' . $this->photo)) {
             return $this->photo->name;
         }
 

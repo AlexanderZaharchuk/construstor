@@ -35,11 +35,11 @@ class LoginForm extends Model
             [['user_name', 'password'], 'required'],
             [['user_name', 'password'], 'string', 'max' => 255],
             ['remember_me', 'boolean'],
-            ['password', 'validatePassword']
+            ['password', 'validatePasswordAndUsername'],
         ];
     }
 
-    public function validatePassword($attribute)
+    public function validatePasswordAndUsername($attribute)
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();

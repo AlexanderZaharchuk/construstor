@@ -3,7 +3,8 @@
         'news' => $news,
     ]); ?>
     <!--begin page-wrapper-->
-    <div class="wrapper-all-content">
+    <div class="wrapper-all-content" xmlns="http://www.w3.org/1999/html">
+        <?php if(\common\modules\auth\models\User::getStatus()): ?>
         <div class="lk">
             <div class="page-personal-area">
                 <div class="container">
@@ -44,6 +45,7 @@
                             "Новости ФК ★Звёзды★"
                         </h2>
                         <?php foreach ($news as $key => $item): ?>
+                            <a href="?r=site/news&id=<?= $item->id ?>">
                         <div class="col-lg-1">
                             <span class="data-news"><?= date("d.m.Y", $item->created_at) ?></span>
                         </div>
@@ -51,12 +53,13 @@
                             <span class="page-personal-area__text">
                             <?= $item->content ?>
                             </span>
-                        </div>
+                        </div></a>
                         <?php endforeach; ?>
                     </div>
                 </div>
             </div>
         </div>
+        <?php endif; ?>
 
 
         <!-- BEGIN HEADER-PAGE
@@ -184,39 +187,39 @@
             </div>
             <!--end video gallery-->
 
-            <!--begin news-->
-            <div class="container">
-                <div class="row">
-                    <h3 class="text-center" id="bewLink">
-                        Наши выпускники
-                    </h3>
-                    <div class="col-lg-12  text-center">
-                        <!--begin page-content__wrappers-news-contents-->
-                        <div class="page-content__wrappers-news-contents" id="wrappers-news-contents">
-
-                            <!--begin page-content__wrappers-news-content-->
-                            <div class="page-content__wrappers-news-content">
-
-                                <?php foreach ($graduates as $item): ?>
-                                <div class="page-content__wrap-item">
-                                    <img class="birthday  img-rounded"
-                                         src="<?= BACKEND_IMG.$item->formName().'/'.$item->photo ?>"
-                                         alt="Person">
-
-                                    <span class="inf-person">
-                                      <?= $item->name ?>
-                                    </span>
-                                </div>
-                                <?php endforeach; ?>
-
-                            </div>
-
-                        </div>
-                        <!--end page-content__wrappers-news-content-->
-                    </div>
-                    <!--end page-content__wrappers-news-contents-->
-                </div>
-            </div>
+<!--            <!--begin news-->-->
+<!--            <div class="container">-->
+<!--                <div class="row">-->
+<!--                    <h3 class="text-center" id="bewLink">-->
+<!--                        Наши выпускники-->
+<!--                    </h3>-->
+<!--                    <div class="col-lg-12  text-center">-->
+<!--                        <!--begin page-content__wrappers-news-contents-->-->
+<!--                        <div class="page-content__wrappers-news-contents" id="wrappers-news-contents">-->
+<!---->
+<!--                            <!--begin page-content__wrappers-news-content-->-->
+<!--                            <div class="page-content__wrappers-news-content">-->
+<!---->
+<!--                                --><?php //foreach ($graduates as $item): ?>
+<!--                                <div class="page-content__wrap-item">-->
+<!--                                    <img class="birthday  img-rounded"-->
+<!--                                         src="--><?//= BACKEND_IMG.$item->formName().'/'.$item->photo ?><!--"-->
+<!--                                         alt="Person">-->
+<!---->
+<!--                                    <span class="inf-person">-->
+<!--                                      --><?//= $item->name ?>
+<!--                                    </span>-->
+<!--                                </div>-->
+<!--                                --><?php //endforeach; ?>
+<!---->
+<!--                            </div>-->
+<!---->
+<!--                        </div>-->
+<!--                        <!--end page-content__wrappers-news-content-->-->
+<!--                    </div>-->
+<!--                    <!--end page-content__wrappers-news-contents-->-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
 
         <!--end news-->
@@ -335,7 +338,7 @@
 
                                     <?= \frontend\widgets\Login\Login::widget([
                                         'model' => new \common\modules\auth\models\frontend\LoginForm(),
-                                        'action' => '/site/login'
+                                        'action' => 'http://fc-stars.s-host.net/index.php?r=site/login'
                                     ]) ?>
 
                                 </div>
@@ -386,7 +389,7 @@
           </span>
                                     <?= \frontend\widgets\Reg\Reg::widget([
                                         'model' => new \frontend\models\UserRegForm(),
-                                        'action' => '/site/reg'
+                                        'action' => 'http://fc-stars.s-host.net/index.php?r=site/reg'
                                     ]) ?>
 
                                 </div>
